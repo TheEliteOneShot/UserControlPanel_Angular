@@ -1,0 +1,19 @@
+<div class="ui form">
+  <div class="fields">
+    <div class="ui circular labels">
+      <div class="ui label">{{ userNumber }}</div>
+    </div>
+    <div class="field">
+      <label>First Name</label>
+      <input (input)="nameChangedEvent($event.target.value)" type="text" value="{{ user.firstName }}" />
+    </div>
+    <div class="field">
+      <label>Age</label>
+      <input (input)="ageChangedEvent($event.target.value)" type="text" value="{{ user.age }}" />
+    </div>
+    <div (click)="deleteThisUser()" class="ui icon button small" data-inverted="" data-tooltip="Remove this user" data-position="top left"
+      data-variation="mini">
+      <i class="remove icon"></i>
+    </div>
+  </div>
+</div>

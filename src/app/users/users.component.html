@@ -1,0 +1,30 @@
+<div class="ui horizontal divider" *ngIf="this.userManagerService.getCurrentUserCount() !== 0">
+    Current Users
+</div>
+<div class="ui warning message" *ngIf="this.userManagerService.getCurrentUserCount() === 0">
+    <div class="header">
+        There are currently no users in the list.
+    </div>
+</div>
+<app-user (deleteUser)="this.userManagerService.removeUserByUniqueId(user.uniqueId)" (textChanged)="textChangedEvent()"
+    [userNumber]="i + 1" [user]="user" *ngFor="let user of this.userManagerService.getUserList();index as i">
+</app-user>
+<div class="ui horizontal divider">
+    Menu
+</div>
+<div class="ui horizontal divider">
+</div>
+<div class="ui centered grid">
+    <div class="ui buttons">
+        <button class="ui positive button" [disabled]="saveChangedButtonEnabled === false"
+            (click)="saveAllChanges()">Save Changes</button>
+        <div class="or"></div>
+        <button class="ui button" (click)="openAddUserDialog()">Add New User</button>
+    </div>
+</div>
+<div class="ui success message" *ngIf="this.showAddedUserSuccessMessage">
+    <i (click)="this.showAddedUserSuccessMessage = false"class="close icon"></i>
+    <div class="header">
+        The user was successfully added to the list.
+    </div>
+</div>

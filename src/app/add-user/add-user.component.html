@@ -1,0 +1,19 @@
+<h2 class="ui header">
+  Add a new user
+  <div class="sub header">Add a new user to the current list of users.</div>
+</h2>
+<form class="ui form">
+  <div class="field">
+    <label>First Name</label>
+    <input type="text" name="firstname" placeholder="First Name" [(ngModel)]='data.firstName'>
+  </div>
+  <div class="field">
+    <label>Age</label>
+    <input type="text" name="age" placeholder="Age"  [(ngModel)]='data.age'>
+  </div>
+  <div class="ui buttons">
+    <button class="ui negative button" (click)="cancel()">Cancel</button>
+    <div class="or"></div>
+    <button class="ui button" [mat-dialog-close]="data" cdkFocusInitial>Add</button>
+  </div>
+</form>
